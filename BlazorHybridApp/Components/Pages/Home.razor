@@ -1,0 +1,17 @@
+﻿@page "/"
+@inject ExampleJsInterop exampleInterop
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await exampleInterop.Prompt("test");
+            await base.OnAfterRenderAsync(firstRender);
+        }
+    }
+}
